@@ -1,0 +1,11 @@
+{
+  "greeting": "Hello",
+  "theme": {
+    "toggle": "Toggle theme",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "language": {
+    "toggle": "Toggle language"
+  }
+}

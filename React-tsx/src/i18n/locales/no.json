@@ -1,0 +1,11 @@
+{
+  "greeting": "Hei",
+  "theme": {
+    "toggle": "Bytt tema",
+    "light": "Lys",
+    "dark": "Mørk"
+  },
+  "language": {
+    "toggle": "Bytt språk"
+  }
+}
