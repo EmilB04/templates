@@ -1,5 +1,5 @@
 {
-  "greeting": "Hello",
+  "greeting": "Hello and welcome to my React TypeScript template!",
   "theme": {
     "toggle": "Toggle theme",
     "light": "Light",
@@ -7,5 +7,16 @@
   },
   "language": {
     "toggle": "Toggle language"
+  },
+  "languageSwitcher": {
+    "choose": "Choose language",
+    "section": "Language"
+  },
+  "footer": {
+    "tagline": "This is a React TypeScript template with Tailwind CSS, i18n, and dark mode support.",
+    "updated": "Last updated: {{month}} {{year}}",
+    "github": "View on GitHub",
+    "madeBy": "Made by",
+    "contact": "Contact"
   }
 }

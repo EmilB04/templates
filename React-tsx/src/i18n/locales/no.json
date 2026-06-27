@@ -1,5 +1,5 @@
 {
-  "greeting": "Hei",
+  "greeting": "Hei og velkommen til min React TypeScript mal!",
   "theme": {
     "toggle": "Bytt tema",
     "light": "Lys",
@@ -7,5 +7,16 @@
   },
   "language": {
     "toggle": "Bytt språk"
+  },
+  "languageSwitcher": {
+    "choose": "Velg språk",
+    "section": "Språk"
+  },
+  "footer": {
+    "tagline": "Dette er en React TypeScript mal med Tailwind CSS, i18n og støtte for mørk modus.",
+    "updated": "Sist oppdatert: {{month}} {{year}}",
+    "github": "Se på GitHub",
+    "madeBy": "Laget av",
+    "contact": "Kontakt"
   }
 }

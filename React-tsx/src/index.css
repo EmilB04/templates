@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --surface: rgba(255, 255, 255, 0.8);
+  --surface-card: rgba(249, 250, 251, 0.9);
+  --border: rgba(229, 231, 235, 1);
+  --text: #111827;
+  --text-subtle: #6b7280;
+  --text-muted: #9ca3af;
+  --accent: #6366f1;
+  --border-hover: rgba(209, 213, 219, 1);
+}
+
+.dark {
+  --surface: rgba(17, 24, 39, 0.8);
+  --surface-card: rgba(31, 41, 55, 0.9);
+  --border: rgba(55, 65, 81, 1);
+  --text: #f9fafb;
+  --text-subtle: #9ca3af;
+  --text-muted: #6b7280;
+  --accent: #818cf8;
+  --border-hover: rgba(75, 85, 99, 1);
+}
