@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import LanguageSwitcher from './LanguageSwitcher'
-import { ThemeSwitcher } from './ThemeSwitcher'
+import SettingsMenu from './SettingsMenu'
+import HeaderText from './HeaderText'
 
 export default function HeaderSection() {
     return (
@@ -10,13 +10,12 @@ export default function HeaderSection() {
             transition={{ duration: 0.4, ease: 'easeOut' }}
             className="border-b border-gray-200 dark:border-gray-800"
         >
-            <div className="mx-auto flex w-full max-w-screen-xl items-center justify-between px-6 py-4">
-                <span className="font-semibold tracking-tight">Boilerplate</span>
+            <section className="mx-auto flex w-full max-w-screen-xl items-center justify-between px-4 py-4">
+                <HeaderText />
                 <div className="flex gap-2">
-                    <LanguageSwitcher />
-                    <ThemeSwitcher />
+                    <SettingsMenu />
                 </div>
-            </div>
+            </section>
         </motion.header>
     )
 }

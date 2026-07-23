@@ -1,15 +1,5 @@
-import { createContext, useContext, useEffect, useState } from 'react'
-
-export type Theme = 'light' | 'dark' | 'system'
-export type CurrentTheme = 'light' | 'dark'
-
-interface ThemeContextValue {
-  theme: Theme
-  currentTheme: CurrentTheme
-  setTheme: (theme: Theme) => void
-}
-
-const ThemeContext = createContext<ThemeContextValue | null>(null)
+import { useEffect, useState } from 'react'
+import { ThemeContext, type Theme, type CurrentTheme } from './theme-context'
 
 function getSystemTheme(): CurrentTheme {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
@@ -48,11 +38,4 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       {children}
     </ThemeContext.Provider>
   )
-}
-
-// eslint-disable-next-line react-refresh/only-export-components
-export function useTheme() {
-  const ctx = useContext(ThemeContext)
-  if (!ctx) throw new Error('useTheme must be used within ThemeProvider')
-  return ctx
 }

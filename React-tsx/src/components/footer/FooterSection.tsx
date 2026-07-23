@@ -10,9 +10,9 @@ export default function FooterSection() {
     const monthName = new Intl.DateTimeFormat(i18n.language, { month: 'long' }).format(lastUpdatedDate)
 
     return (
-        <footer aria-label="Site footer" className="w-full px-4 pb-4 pt-12 sm:px-6">
+        <footer aria-label="Site footer" className="w-full px-4 pb-4 pt-6 sm:px-6">
             <div
-                className="mx-auto w-full max-w-screen-xl rounded-3xl border px-5 py-5 text-center sm:px-6 sm:py-6"
+                className="mx-auto w-full max-w-screen-xl rounded-3xl border px-5 py-4 text-center sm:px-6"
                 style={{
                     background: 'var(--surface)',
                     borderColor: 'var(--border)',
@@ -22,7 +22,7 @@ export default function FooterSection() {
                 }}
             >
                 <p
-                    className="mb-4 text-xs font-semibold uppercase tracking-[0.04em] sm:text-sm"
+                    className="mb-2 text-xs font-semibold uppercase tracking-[0.04em] sm:text-sm"
                     style={{ color: 'var(--text-muted)' }}
                 >
                     {t('footer.tagline')}
@@ -33,7 +33,7 @@ export default function FooterSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Besøk GitHub-profilen til Emil Berglund"
-                    className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border px-4 py-3 font-semibold transition-all duration-200 hover:-translate-y-0.5"
+                    className="mx-auto mb-3 inline-flex items-center gap-2 rounded-full border px-4 py-2 font-semibold transition-all duration-200 hover:-translate-y-0.5"
                     style={{
                         color: 'var(--text)',
                         borderColor: 'var(--border)',
