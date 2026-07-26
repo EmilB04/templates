@@ -4,8 +4,29 @@
     "choose": "Choose language",
     "section": "Language"
   },
+  "settingsMenu": {
+    "settings": "Settings",
+    "appearance": "Appearance",
+    "accentColor": "Accent color",
+    "chooseAccent": "Choose accent color"
+  },
+  "theme": {
+    "dark": "Dark",
+    "system": "System",
+    "light": "Light"
+  },
+  "cookieConsent": {
+    "section": "Privacy",
+    "message": "This site uses cookies to remember your theme, accent color and language. Nothing is shared with third parties.",
+    "accept": "Accept",
+    "decline": "Decline",
+    "manage": "Change cookie preferences",
+    "statusAccepted": "Preferences are being saved on this device.",
+    "statusDeclined": "Preferences are not saved. Your choices only apply to this session.",
+    "statusUndecided": "You haven't made a choice yet."
+  },
   "footer": {
-    "tagline": "This is a React TypeScript template with Tailwind CSS, i18n, and dark mode support.",
+    "tagline": "This is a React TypeScript template with Tailwind CSS, i18n, React Icons, and dark mode support.",
     "updated": "Last updated: {{month}} {{year}}",
     "github": "View on GitHub",
     "madeBy": "Made by"

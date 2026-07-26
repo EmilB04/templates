@@ -24,9 +24,9 @@ function App() {
           <div className="flex h-28 w-28 items-center justify-center rounded-full border border-gray-200 bg-black text-white transition-colors duration-300 dark:border-gray-800 dark:bg-white dark:text-black">
             <img src={currentTheme === 'dark' ? ebBlack : ebWhite} alt="Logo" className="h-18 w-18" />
           </div>
-          <h1 className="text-4xl text-center font-bold">{t('greeting')}</h1>
+          <h1 className="text-4xl text-center font-bold text-[var(--accent)]">{t('greeting')}</h1>
           <p className="flex flex-wrap justify-center gap-2 text-gray-500 dark:text-gray-400">
-            Vite 8 · React 19 · TypeScript 6 · Tailwind 3 · i18next 26 · Framer Motion 12
+            Vite 8 · React 19 · TypeScript 6 · Tailwind 3 · i18next 26 · Framer Motion 12 · React Icons 5
           </p>
         </div>
       </motion.main>

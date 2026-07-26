@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
 import { ThemeContext, type Theme, type CurrentTheme } from './theme-context'
+import { readPreference, writePreference } from '../lib/cookieConsent'
+import { useCookieConsent } from './useCookieConsent'
 
 function getSystemTheme(): CurrentTheme {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const { consent } = useCookieConsent()
   const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem('theme') as Theme) ?? 'system'
+    () => (readPreference('theme') as Theme) ?? 'system'
   )
   const [systemTheme, setSystemTheme] = useState<CurrentTheme>(getSystemTheme)
 
@@ -30,8 +33,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       html.classList.remove('dark')
       html.classList.add('light')
     }
-    localStorage.setItem('theme', theme)
-  }, [currentTheme, theme])
+    if (consent === 'accepted') {
+      writePreference('theme', theme)
+    }
+  }, [currentTheme, theme, consent])
 
   return (
     <ThemeContext.Provider value={{ theme, currentTheme, setTheme }}>

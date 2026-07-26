@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Github } from '../../lib/icons'
 // Starter på 0
-const LAST_UPDATED_MONTH_INDEX = 5
+const LAST_UPDATED_MONTH_INDEX = 6
 const LAST_UPDATED_YEAR = 2026
 
 export default function FooterSection() {
@@ -55,7 +55,7 @@ export default function FooterSection() {
                 </a>
 
                 <p className="m-0 text-sm sm:text-[0.98rem]" style={{ color: 'var(--text-muted)' }}>
-                    {t('footer.madeBy')} <strong style={{ color: 'var(--text)' }}>Emil Berglund</strong>
+                    {t('footer.madeBy')} <strong style={{ color: 'var(--accent)' }}>Emil Berglund</strong>
                     <span className="mx-2" style={{ color: 'var(--text-subtle)' }} aria-hidden="true">
                         •
                     </span>

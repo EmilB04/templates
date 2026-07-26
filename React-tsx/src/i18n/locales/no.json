@@ -4,8 +4,29 @@
     "choose": "Velg språk",
     "section": "Språk"
   },
+  "settingsMenu": {
+    "settings": "Innstillinger",
+    "appearance": "Utseende",
+    "accentColor": "Aksentfarge",
+    "chooseAccent": "Velg aksentfarge"
+  },
+  "theme": {
+    "dark": "Mørk",
+    "system": "System",
+    "light": "Lys"
+  },
+  "cookieConsent": {
+    "section": "Personvern",
+    "message": "Dette nettstedet bruker informasjonskapsler for å huske tema, aksentfarge og språk. Ingenting deles med tredjeparter.",
+    "accept": "Godta",
+    "decline": "Avslå",
+    "manage": "Endre informasjonskapsler",
+    "statusAccepted": "Preferanser lagres på denne enheten.",
+    "statusDeclined": "Preferanser lagres ikke. Valgene dine gjelder kun for denne økten.",
+    "statusUndecided": "Du har ikke tatt et valg ennå."
+  },
   "footer": {
-    "tagline": "Dette er en React TypeScript mal med Tailwind CSS, i18n og støtte for mørk modus.",
+    "tagline": "Dette er en React TypeScript mal med Tailwind CSS, i18n, React Icons og støtte for mørk modus.",
     "updated": "Sist oppdatert: {{month}} {{year}}",
     "github": "Se på GitHub",
     "madeBy": "Laget av"

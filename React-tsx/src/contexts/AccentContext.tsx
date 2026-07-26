@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
 import { useTheme } from './useTheme'
+import { useCookieConsent } from './useCookieConsent'
+import { readPreference, writePreference } from '../lib/cookieConsent'
 import { AccentContext, ACCENT_PRESETS, DEFAULT_ACCENT, type AccentColor } from './accent-context'
 
 const STORAGE_KEY = 'accentColor'
 
 export function AccentProvider({ children }: { children: React.ReactNode }) {
     const { currentTheme } = useTheme()
+    const { consent } = useCookieConsent()
     const [accent, setAccent] = useState<AccentColor>(
-        () => (localStorage.getItem(STORAGE_KEY) as AccentColor) ?? DEFAULT_ACCENT
+        () => (readPreference(STORAGE_KEY) as AccentColor) ?? DEFAULT_ACCENT
     )
 
     useEffect(() => {
@@ -16,8 +19,10 @@ export function AccentProvider({ children }: { children: React.ReactNode }) {
             '--accent',
             currentTheme === 'dark' ? preset.dark : preset.light
         )
-        localStorage.setItem(STORAGE_KEY, accent)
-    }, [accent, currentTheme])
+        if (consent === 'accepted') {
+            writePreference(STORAGE_KEY, accent)
+        }
+    }, [accent, currentTheme, consent])
 
     return <AccentContext.Provider value={{ accent, setAccent }}>{children}</AccentContext.Provider>
 }

@@ -1,0 +1,34 @@
+{
+  "greeting": "Hey, willkommen bei meinem React TypeScript Template!",
+  "languageSwitcher": {
+    "choose": "Sprache aussuchen",
+    "section": "Sprache"
+  },
+  "settingsMenu": {
+    "settings": "Einstellungen",
+    "appearance": "Look",
+    "accentColor": "Akzentfarbe",
+    "chooseAccent": "Akzentfarbe aussuchen"
+  },
+  "theme": {
+    "dark": "Dark",
+    "system": "System",
+    "light": "Light"
+  },
+  "cookieConsent": {
+    "section": "Datenschutz",
+    "message": "Wir merken uns hier nur dein Design, deine Akzentfarbe und Sprache. Kein Tracking, nix geht an Dritte.",
+    "accept": "Passt",
+    "decline": "Nee, lieber nicht",
+    "manage": "Cookie-Einstellungen ändern",
+    "statusAccepted": "Läuft — deine Einstellungen bleiben auf diesem Gerät gespeichert.",
+    "statusDeclined": "Wird nicht gespeichert. Gilt nur für diese Session.",
+    "statusUndecided": "Noch nicht entschieden?"
+  },
+  "footer": {
+    "tagline": "Ein React TypeScript Template mit Tailwind CSS, i18n, React Icons und Dark Mode.",
+    "updated": "Zuletzt aktualisiert: {{month}} {{year}}",
+    "github": "Auf GitHub checken",
+    "madeBy": "Gebaut von"
+  }
+}

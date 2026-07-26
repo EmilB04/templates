@@ -1,0 +1,34 @@
+{
+  "greeting": "¡Hola! Bienvenido a mi plantilla de React TypeScript",
+  "languageSwitcher": {
+    "choose": "Elegir idioma",
+    "section": "Idioma"
+  },
+  "settingsMenu": {
+    "settings": "Ajustes",
+    "appearance": "Estilo",
+    "accentColor": "Color de acento",
+    "chooseAccent": "Elegir color de acento"
+  },
+  "theme": {
+    "dark": "Oscuro",
+    "system": "Sistema",
+    "light": "Claro"
+  },
+  "cookieConsent": {
+    "section": "Privacidad",
+    "message": "Solo guardamos tu tema, color de acento e idioma. Nada de rastreo, nada se comparte con nadie.",
+    "accept": "Dale",
+    "decline": "Paso",
+    "manage": "Cambiar preferencias de cookies",
+    "statusAccepted": "Listo, tus preferencias se guardan en este dispositivo.",
+    "statusDeclined": "No se guarda nada. Solo aplica a esta sesión.",
+    "statusUndecided": "Todavía no decidiste."
+  },
+  "footer": {
+    "tagline": "Una plantilla de React TypeScript con Tailwind CSS, i18n, React Icons y modo oscuro.",
+    "updated": "Última actualización: {{month}} {{year}}",
+    "github": "Míralo en GitHub",
+    "madeBy": "Hecho por"
+  }
+}

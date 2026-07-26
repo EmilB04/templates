@@ -6,6 +6,7 @@ import { ACCENT_PRESETS, type AccentColor } from '../../contexts/accent-context'
 import { useAccent } from '../../contexts/useAccent'
 import { type Theme } from '../../contexts/theme-context'
 import { useTheme } from '../../contexts/useTheme'
+import { useCookieConsent } from '../../contexts/useCookieConsent'
 
 function MoonIcon() {
     return (
@@ -42,10 +43,10 @@ function SunIcon() {
     )
 }
 
-const THEME_OPTIONS: { value: Theme; label: string; Icon: () => React.JSX.Element; activeColor: string }[] = [
-    { value: 'dark', label: 'Dark', Icon: MoonIcon, activeColor: '#a5b4fc' },
-    { value: 'system', label: 'System', Icon: SystemIcon, activeColor: 'var(--text)' },
-    { value: 'light', label: 'Light', Icon: SunIcon, activeColor: '#fbbf24' },
+const THEME_OPTIONS: { value: Theme; labelKey: string; Icon: () => React.JSX.Element; activeColor: string }[] = [
+    { value: 'dark', labelKey: 'theme.dark', Icon: MoonIcon, activeColor: '#a5b4fc' },
+    { value: 'system', labelKey: 'theme.system', Icon: SystemIcon, activeColor: 'var(--text)' },
+    { value: 'light', labelKey: 'theme.light', Icon: SunIcon, activeColor: '#fbbf24' },
 ]
 
 const INDICATOR_BG: Record<string, string> = {
@@ -64,6 +65,7 @@ export default function SettingsMenu() {
     const { i18n, t } = useTranslation()
     const { theme, currentTheme, setTheme } = useTheme()
     const { accent, setAccent } = useAccent()
+    const { consent, accept, decline, showBanner } = useCookieConsent()
     const [open, setOpen] = useState(false)
     const rootRef = useRef<HTMLDivElement | null>(null)
 
@@ -96,7 +98,6 @@ export default function SettingsMenu() {
 
     async function handleLanguageSelect(code: string) {
         await i18n.changeLanguage(code)
-        localStorage.setItem('portfolio-lang', code)
     }
 
     return (
@@ -105,7 +106,7 @@ export default function SettingsMenu() {
                 type="button"
                 aria-haspopup="dialog"
                 aria-expanded={open}
-                aria-label="Settings"
+                aria-label={t('settingsMenu.settings')}
                 onClick={() => setOpen((value) => !value)}
                 className={`
                     group relative inline-flex h-10 w-10 items-center justify-center rounded-full border
@@ -127,7 +128,7 @@ export default function SettingsMenu() {
 
             <div
                 role="dialog"
-                aria-label="Settings"
+                aria-label={t('settingsMenu.settings')}
                 className={`
                     absolute right-0 top-[calc(100%+0.6rem)] z-[400] w-72 max-w-[calc(100vw-2rem)]
                     max-h-[70vh] overflow-y-auto rounded-2xl border border-[var(--border)]
@@ -176,7 +177,7 @@ export default function SettingsMenu() {
 
                     <section className="border-t border-[var(--border)] pt-4">
                         <h3 className="mb-2 px-1 text-xs font-bold uppercase tracking-[0.18em] text-[var(--text-subtle)]">
-                            Appearance
+                            {t('settingsMenu.appearance')}
                         </h3>
                         <div className="relative grid grid-cols-3 gap-1 rounded-xl bg-[var(--surface)] p-1">
                             <span
@@ -187,8 +188,9 @@ export default function SettingsMenu() {
                                     background: INDICATOR_BG[theme],
                                 }}
                             />
-                            {THEME_OPTIONS.map(({ value, label, Icon, activeColor }) => {
+                            {THEME_OPTIONS.map(({ value, labelKey, Icon, activeColor }) => {
                                 const selected = theme === value
+                                const label = t(labelKey)
                                 return (
                                     <button
                                         key={value}
@@ -209,9 +211,9 @@ export default function SettingsMenu() {
 
                     <section className="border-t border-[var(--border)] pt-4">
                         <h3 className="mb-2 px-1 text-xs font-bold uppercase tracking-[0.18em] text-[var(--text-subtle)]">
-                            Accent color
+                            {t('settingsMenu.accentColor')}
                         </h3>
-                        <div role="listbox" aria-label="Choose accent color" className="flex flex-wrap gap-2 px-1">
+                        <div role="listbox" aria-label={t('settingsMenu.chooseAccent')} className="flex flex-wrap gap-2 px-1">
                             {(Object.keys(ACCENT_PRESETS) as AccentColor[]).map((color) => {
                                 const preset = ACCENT_PRESETS[color]
                                 const selected = color === accent
@@ -241,6 +243,46 @@ export default function SettingsMenu() {
                                 )
                             })}
                         </div>
+                    </section>
+
+                    <section className="border-t border-[var(--border)] pt-4">
+                        <h3 className="mb-2 px-1 text-xs font-bold uppercase tracking-[0.18em] text-[var(--text-subtle)]">
+                            {t('cookieConsent.section')}
+                        </h3>
+                        <p className="mb-2 px-1 text-xs text-[var(--text-subtle)]">
+                            {consent === 'accepted'
+                                ? t('cookieConsent.statusAccepted')
+                                : consent === 'declined'
+                                    ? t('cookieConsent.statusDeclined')
+                                    : t('cookieConsent.statusUndecided')}
+                        </p>
+                        {consent === null && (
+                            <div className="flex gap-2 px-1">
+                                <button
+                                    type="button"
+                                    onClick={accept}
+                                    className="flex-1 rounded-xl bg-[var(--accent)] px-3 py-2 text-xs font-semibold text-white transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                                >
+                                    {t('cookieConsent.accept')}
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={decline}
+                                    className="flex-1 rounded-xl border border-[var(--border)] px-3 py-2 text-xs font-semibold text-[var(--text-subtle)] transition-colors duration-200 hover:text-[var(--text)]"
+                                >
+                                    {t('cookieConsent.decline')}
+                                </button>
+                            </div>
+                        )}
+                        {consent !== null && (
+                            <button
+                                type="button"
+                                onClick={showBanner}
+                                className="mt-2 w-full px-1 text-left text-xs underline text-[var(--text-subtle)] hover:text-[var(--text)]"
+                            >
+                                {t('cookieConsent.manage')}
+                            </button>
+                        )}
                     </section>
                 </div>
             </div>
