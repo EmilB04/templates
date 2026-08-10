@@ -23,7 +23,23 @@
     "manage": "Change cookie preferences",
     "statusAccepted": "Preferences are being saved on this device.",
     "statusDeclined": "Preferences are not saved. Your choices only apply to this session.",
-    "statusUndecided": "You haven't made a choice yet."
+    "statusUndecided": "You haven't made a choice yet.",
+    "showDetails": "What exactly is stored?",
+    "hideDetails": "Hide details",
+    "stored": {
+      "appearance": {
+        "title": "Appearance",
+        "desc": "Your theme (light/dark/system) and accent color."
+      },
+      "language": {
+        "title": "Language",
+        "desc": "The language you've selected for the interface."
+      }
+    },
+    "clear": "Delete stored data",
+    "clearConfirm": "This removes everything saved on this device (theme, accent color, language). Continue?",
+    "clearYes": "Yes, delete it",
+    "cancel": "Cancel"
   },
   "footer": {
     "tagline": "This is a React TypeScript template with Tailwind CSS, i18n, React Icons, and dark mode support.",

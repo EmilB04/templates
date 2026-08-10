@@ -7,6 +7,8 @@ export interface CookieConsentContextValue {
     accept: () => void
     decline: () => void
     showBanner: () => void
+    /** wipes everything stored on-device (theme, accent, language) */
+    clearStoredData: () => void
 }
 
 export const CookieConsentContext = createContext<CookieConsentContextValue | null>(null)

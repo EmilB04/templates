@@ -65,8 +65,9 @@ export default function SettingsMenu() {
     const { i18n, t } = useTranslation()
     const { theme, currentTheme, setTheme } = useTheme()
     const { accent, setAccent } = useAccent()
-    const { consent, accept, decline, showBanner } = useCookieConsent()
+    const { consent, accept, decline, showBanner, clearStoredData } = useCookieConsent()
     const [open, setOpen] = useState(false)
+    const [confirmClear, setConfirmClear] = useState(false)
     const rootRef = useRef<HTMLDivElement | null>(null)
 
     const currentLanguage =
@@ -78,12 +79,14 @@ export default function SettingsMenu() {
         function handleClickOutside(event: MouseEvent) {
             if (!rootRef.current?.contains(event.target as Node)) {
                 setOpen(false)
+                setConfirmClear(false)
             }
         }
 
         function handleKeyDown(event: KeyboardEvent) {
             if (event.key === 'Escape') {
                 setOpen(false)
+                setConfirmClear(false)
             }
         }
 
@@ -98,6 +101,11 @@ export default function SettingsMenu() {
 
     async function handleLanguageSelect(code: string) {
         await i18n.changeLanguage(code)
+    }
+
+    function handleClearData() {
+        clearStoredData()
+        window.location.reload()
     }
 
     return (
@@ -277,10 +285,45 @@ export default function SettingsMenu() {
                         {consent !== null && (
                             <button
                                 type="button"
-                                onClick={showBanner}
+                                onClick={() => {
+                                    showBanner()
+                                    setOpen(false)
+                                }}
                                 className="mt-2 w-full px-1 text-left text-xs underline text-[var(--text-subtle)] hover:text-[var(--text)]"
                             >
                                 {t('cookieConsent.manage')}
+                            </button>
+                        )}
+
+                        {confirmClear ? (
+                            <div className="mt-3 px-1">
+                                <p className="mb-2 text-xs text-[var(--text-subtle)]">
+                                    {t('cookieConsent.clearConfirm')}
+                                </p>
+                                <div className="flex gap-2">
+                                    <button
+                                        type="button"
+                                        onClick={handleClearData}
+                                        className="flex-1 rounded-xl bg-red-600 px-3 py-2 text-xs font-bold text-white transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                                    >
+                                        {t('cookieConsent.clearYes')}
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={() => setConfirmClear(false)}
+                                        className="flex-1 rounded-xl border border-[var(--border)] px-3 py-2 text-xs font-bold text-[var(--text-subtle)] hover:text-[var(--text)]"
+                                    >
+                                        {t('cookieConsent.cancel')}
+                                    </button>
+                                </div>
+                            </div>
+                        ) : (
+                            <button
+                                type="button"
+                                onClick={() => setConfirmClear(true)}
+                                className="mt-3 w-full px-1 text-left text-xs font-semibold underline underline-offset-2 text-red-500 hover:text-red-600"
+                            >
+                                {t('cookieConsent.clear')}
                             </button>
                         )}
                     </section>

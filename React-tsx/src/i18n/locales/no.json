@@ -23,7 +23,23 @@
     "manage": "Endre informasjonskapsler",
     "statusAccepted": "Preferanser lagres på denne enheten.",
     "statusDeclined": "Preferanser lagres ikke. Valgene dine gjelder kun for denne økten.",
-    "statusUndecided": "Du har ikke tatt et valg ennå."
+    "statusUndecided": "Du har ikke tatt et valg ennå.",
+    "showDetails": "Hva lagres egentlig?",
+    "hideDetails": "Skjul detaljer",
+    "stored": {
+      "appearance": {
+        "title": "Utseende",
+        "desc": "Tema (lys/mørk/system) og aksentfarge."
+      },
+      "language": {
+        "title": "Språk",
+        "desc": "Språket du har valgt for grensesnittet."
+      }
+    },
+    "clear": "Slett lagrede data",
+    "clearConfirm": "Dette fjerner alt som er lagret på denne enheten (tema, aksentfarge, språk). Fortsette?",
+    "clearYes": "Ja, slett",
+    "cancel": "Avbryt"
   },
   "footer": {
     "tagline": "Dette er en React TypeScript mal med Tailwind CSS, i18n, React Icons og støtte for mørk modus.",

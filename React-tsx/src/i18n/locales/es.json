@@ -23,7 +23,23 @@
     "manage": "Cambiar preferencias de cookies",
     "statusAccepted": "Listo, tus preferencias se guardan en este dispositivo.",
     "statusDeclined": "No se guarda nada. Solo aplica a esta sesión.",
-    "statusUndecided": "Todavía no decidiste."
+    "statusUndecided": "Todavía no decidiste.",
+    "showDetails": "¿Qué se guarda exactamente?",
+    "hideDetails": "Ocultar detalles",
+    "stored": {
+      "appearance": {
+        "title": "Estilo",
+        "desc": "Tu tema (claro/oscuro/sistema) y color de acento."
+      },
+      "language": {
+        "title": "Idioma",
+        "desc": "El idioma que elegiste para la interfaz."
+      }
+    },
+    "clear": "Borrar datos guardados",
+    "clearConfirm": "Esto borra todo lo guardado en este dispositivo (tema, color de acento, idioma). ¿Seguro?",
+    "clearYes": "Sí, borrar",
+    "cancel": "Cancelar"
   },
   "footer": {
     "tagline": "Una plantilla de React TypeScript con Tailwind CSS, i18n, React Icons y modo oscuro.",

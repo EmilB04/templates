@@ -1,30 +1,27 @@
 import { useState } from 'react'
 import type { ReactNode } from 'react'
 import { CookieConsentContext } from './cookie-consent-context'
-import type { ConsentStatus } from '../lib/cookieConsent'
-
-const CONSENT_KEY = 'cookie-consent'
-const PREFERENCE_KEYS = ['theme', 'accentColor', 'lang']
-
-function readConsent(): ConsentStatus {
-    if (typeof window === 'undefined') return null
-    const stored = window.localStorage.getItem(CONSENT_KEY)
-    return stored === 'accepted' || stored === 'declined' ? stored : null
-}
+import {
+    clearPreferences,
+    getConsent,
+    setConsent as persistConsent,
+    type ConsentStatus,
+} from '../lib/cookieConsent'
 
 export function CookieConsentProvider({ children }: { children: ReactNode }) {
-    const [consent, setConsent] = useState<ConsentStatus>(readConsent)
-    const [bannerVisible, setBannerVisible] = useState<boolean>(() => readConsent() === null)
+    const [consent, setConsent] = useState<ConsentStatus>(getConsent)
+    const [bannerVisible, setBannerVisible] = useState<boolean>(() => getConsent() === null)
 
     function accept() {
-        window.localStorage.setItem(CONSENT_KEY, 'accepted')
+        persistConsent('accepted')
         setConsent('accepted')
         setBannerVisible(false)
     }
 
     function decline() {
-        window.localStorage.setItem(CONSENT_KEY, 'declined')
-        PREFERENCE_KEYS.forEach((key) => window.localStorage.removeItem(key))
+        // clear before the status is set, so clearPreferences runs without the consent gate
+        clearPreferences()
+        persistConsent('declined')
         setConsent('declined')
         setBannerVisible(false)
     }
@@ -33,8 +30,14 @@ export function CookieConsentProvider({ children }: { children: ReactNode }) {
         setBannerVisible(true)
     }
 
+    function clearStoredData() {
+        clearPreferences()
+    }
+
     return (
-        <CookieConsentContext.Provider value={{ consent, bannerVisible, accept, decline, showBanner }}>
+        <CookieConsentContext.Provider
+            value={{ consent, bannerVisible, accept, decline, showBanner, clearStoredData }}
+        >
             {children}
         </CookieConsentContext.Provider>
     )

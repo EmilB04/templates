@@ -23,7 +23,23 @@
     "manage": "Cookie-Einstellungen ändern",
     "statusAccepted": "Läuft — deine Einstellungen bleiben auf diesem Gerät gespeichert.",
     "statusDeclined": "Wird nicht gespeichert. Gilt nur für diese Session.",
-    "statusUndecided": "Noch nicht entschieden?"
+    "statusUndecided": "Noch nicht entschieden?",
+    "showDetails": "Was genau wird gespeichert?",
+    "hideDetails": "Details ausblenden",
+    "stored": {
+      "appearance": {
+        "title": "Look",
+        "desc": "Dein Design (hell/dunkel/System) und die Akzentfarbe."
+      },
+      "language": {
+        "title": "Sprache",
+        "desc": "Die Sprache, die du für die Oberfläche gewählt hast."
+      }
+    },
+    "clear": "Gespeicherte Daten löschen",
+    "clearConfirm": "Das löscht alles, was auf diesem Gerät gespeichert ist (Design, Akzentfarbe, Sprache). Sicher?",
+    "clearYes": "Ja, löschen",
+    "cancel": "Abbrechen"
   },
   "footer": {
     "tagline": "Ein React TypeScript Template mit Tailwind CSS, i18n, React Icons und Dark Mode.",
