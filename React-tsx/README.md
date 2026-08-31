@@ -2,6 +2,8 @@
 
 Vite 6 · React 19 · TypeScript 5.8 · Tailwind CSS 3 · i18next · Framer Motion
 
+🔗 **Live demo:** [emilb-react-template.pages.dev](https://emilb-react-template.pages.dev/)
+
 ## Stack
 
 | Layer | Library |
