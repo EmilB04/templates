@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { Github } from '../../lib/icons'
-// Starter på 0
-const LAST_UPDATED_MONTH_INDEX = 7
+
+const LAST_UPDATED_MONTH_INDEX = 8
 const LAST_UPDATED_YEAR = 2026
 
 export default function FooterSection() {
@@ -21,6 +21,7 @@ export default function FooterSection() {
                     WebkitBackdropFilter: 'blur(12px)',
                 }}
             >
+                
                 <p
                     className="mb-2 text-xs font-semibold uppercase tracking-[0.04em] sm:text-sm"
                     style={{ color: 'var(--text-muted)' }}
@@ -57,7 +58,7 @@ export default function FooterSection() {
                 <p className="m-0 text-sm sm:text-[0.98rem]" style={{ color: 'var(--text-muted)' }}>
                     {t('footer.madeBy')} <strong style={{ color: 'var(--accent)' }}>Emil Berglund</strong>
                     <span className="mx-2" style={{ color: 'var(--text-subtle)' }} aria-hidden="true">
-                        •
+                        -
                     </span>
                     <span>{t('footer.updated', { month: monthName, year: LAST_UPDATED_YEAR })}</span>
                 </p>
