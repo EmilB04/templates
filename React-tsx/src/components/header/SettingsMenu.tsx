@@ -156,6 +156,13 @@ export default function SettingsMenu() {
                             {THEME_OPTIONS.map(({ value, labelKey, Icon, activeColor }) => {
                                 const selected = theme === value
                                 const label = t(labelKey)
+                                        const selectedColor = currentTheme === 'light'
+                                            ? value === 'light'
+                                                ? '#92400e'
+                                                : value === 'dark'
+                                                    ? '#3730a3'
+                                                    : '#334155'
+                                            : activeColor
                                 return (
                                     <button
                                         key={value}
@@ -163,7 +170,7 @@ export default function SettingsMenu() {
                                         aria-label={label}
                                         aria-pressed={selected}
                                         onClick={() => setTheme(value)}
-                                        style={{ color: selected ? activeColor : 'var(--text-subtle)' }}
+                                        style={{ color: selected ? selectedColor : 'var(--text-subtle)' }}
                                         className="relative z-10 flex cursor-pointer items-center justify-center gap-1.5 rounded-lg px-2 py-2 text-xs font-semibold transition-colors duration-200 hover:text-[var(--text)]"
                                     >
                                         <Icon />
