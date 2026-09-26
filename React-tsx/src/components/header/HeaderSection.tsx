@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import SettingsMenu from './SettingsMenu'
 import HeaderText from './HeaderText'
+import LanguageMenu from './LanguageMenu'
 
 export default function HeaderSection() {
     return (
@@ -13,6 +14,7 @@ export default function HeaderSection() {
             <section className="mx-auto flex w-full max-w-screen-xl items-center justify-between px-4 py-4">
                 <HeaderText />
                 <div className="flex gap-2">
+                    <LanguageMenu />
                     <SettingsMenu />
                 </div>
             </section>

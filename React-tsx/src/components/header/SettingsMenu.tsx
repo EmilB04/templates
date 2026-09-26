@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { FiSettings } from 'react-icons/fi'
-import { SUPPORTED_LANGUAGES } from '../../lib/i18n.ts'
 import { ACCENT_PRESETS, type AccentColor } from '../../contexts/accent-context'
 import { useAccent } from '../../contexts/useAccent'
 import { type Theme } from '../../contexts/theme-context'
@@ -62,18 +61,13 @@ const INDICATOR_TRANSLATE: Record<string, string> = {
 }
 
 export default function SettingsMenu() {
-    const { i18n, t } = useTranslation()
+    const { t } = useTranslation()
     const { theme, currentTheme, setTheme } = useTheme()
     const { accent, setAccent } = useAccent()
     const { consent, accept, decline, showBanner, clearStoredData } = useCookieConsent()
     const [open, setOpen] = useState(false)
     const [confirmClear, setConfirmClear] = useState(false)
     const rootRef = useRef<HTMLDivElement | null>(null)
-
-    const currentLanguage =
-        SUPPORTED_LANGUAGES.find((language) => language.code === i18n.language)?.code ??
-        i18n.resolvedLanguage ??
-        'no'
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -99,10 +93,6 @@ export default function SettingsMenu() {
         }
     }, [])
 
-    async function handleLanguageSelect(code: string) {
-        await i18n.changeLanguage(code)
-    }
-
     function handleClearData() {
         clearStoredData()
         window.location.reload()
@@ -118,7 +108,7 @@ export default function SettingsMenu() {
                 onClick={() => setOpen((value) => !value)}
                 className={`
                     group relative inline-flex h-10 w-10 items-center justify-center rounded-full border
-                    transition-all duration-200 ease-out motion-reduce:transition-none
+                    transition-all duration-200 ease-out motion-reduce:transition-none cursor-pointer
                     ${open
                         ? 'border-[var(--accent)] bg-[var(--surface-card)] text-[var(--text)] shadow-[0_12px_30px_rgba(0,0,0,0.18)] ring-4 ring-[color:color-mix(in_srgb,var(--accent)_16%,transparent)]'
                         : 'border-[var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-[0_8px_24px_rgba(0,0,0,0.14)] hover:-translate-y-[1px] hover:border-[var(--border-hover)] hover:bg-[var(--surface-card)] active:translate-y-0 active:scale-[0.985] active:shadow-[0_4px_14px_rgba(0,0,0,0.14)]'
@@ -150,39 +140,6 @@ export default function SettingsMenu() {
                 `}
             >
                 <div className="flex flex-col gap-4 p-4">
-                    <section>
-                        <h3 className="mb-2 px-1 text-xs font-bold uppercase tracking-[0.18em] text-[var(--text-subtle)]">
-                            {t('languageSwitcher.section')}
-                        </h3>
-                        <div role="listbox" aria-label={t('languageSwitcher.choose')} className="flex flex-col gap-1">
-                            {SUPPORTED_LANGUAGES.map((language) => {
-                                const selected = language.code === currentLanguage
-                                return (
-                                    <button
-                                        key={language.code}
-                                        type="button"
-                                        role="option"
-                                        aria-selected={selected}
-                                        onClick={() => void handleLanguageSelect(language.code)}
-                                        className={`
-                                            flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-left
-                                            transition-all duration-200 ease-out motion-reduce:transition-none
-                                            ${selected
-                                                ? 'bg-[color:color-mix(in_srgb,var(--accent)_16%,var(--surface-card))] text-[var(--text)] shadow-[inset_0_0_0_1px_color-mix(in_srgb,var(--accent)_30%,transparent)]'
-                                                : 'text-[var(--text-subtle)] hover:bg-[var(--surface)] hover:text-[var(--text)] active:scale-[0.99]'
-                                            }
-                                        `}
-                                    >
-                                        <span className="font-medium">{language.label}</span>
-                                        {selected && (
-                                            <span className="h-2 w-2 rounded-full bg-[var(--accent)]" aria-hidden="true" />
-                                        )}
-                                    </button>
-                                )
-                            })}
-                        </div>
-                    </section>
-
                     <section className="border-t border-[var(--border)] pt-4">
                         <h3 className="mb-2 px-1 text-xs font-bold uppercase tracking-[0.18em] text-[var(--text-subtle)]">
                             {t('settingsMenu.appearance')}
@@ -207,7 +164,7 @@ export default function SettingsMenu() {
                                         aria-pressed={selected}
                                         onClick={() => setTheme(value)}
                                         style={{ color: selected ? activeColor : 'var(--text-subtle)' }}
-                                        className="relative z-10 flex items-center justify-center gap-1.5 rounded-lg px-2 py-2 text-xs font-semibold transition-colors duration-200 hover:text-[var(--text)]"
+                                        className="relative z-10 flex cursor-pointer items-center justify-center gap-1.5 rounded-lg px-2 py-2 text-xs font-semibold transition-colors duration-200 hover:text-[var(--text)]"
                                     >
                                         <Icon />
                                         {label}
@@ -235,7 +192,7 @@ export default function SettingsMenu() {
                                         onClick={() => setAccent(color)}
                                         className={`
                                             flex h-9 w-9 items-center justify-center rounded-full border-2
-                                            transition-all duration-200 ease-out
+                                            transition-all duration-200 ease-out cursor-pointer
                                             ${selected
                                                 ? 'border-[var(--accent)] scale-110'
                                                 : 'border-transparent hover:scale-105'
@@ -269,14 +226,14 @@ export default function SettingsMenu() {
                                 <button
                                     type="button"
                                     onClick={accept}
-                                    className="flex-1 rounded-xl bg-[var(--accent)] px-3 py-2 text-xs font-semibold text-white transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                                    className="flex-1 rounded-xl bg-[var(--accent)] px-3 py-2 text-xs font-semibold text-white transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                                 >
                                     {t('cookieConsent.accept')}
                                 </button>
                                 <button
                                     type="button"
                                     onClick={decline}
-                                    className="flex-1 rounded-xl border border-[var(--border)] px-3 py-2 text-xs font-semibold text-[var(--text-subtle)] transition-colors duration-200 hover:text-[var(--text)]"
+                                    className="flex-1 rounded-xl border border-[var(--border)] px-3 py-2 text-xs font-semibold text-[var(--text-subtle)] transition-colors duration-200 hover:text-[var(--text)] cursor-pointer"
                                 >
                                     {t('cookieConsent.decline')}
                                 </button>
@@ -289,12 +246,12 @@ export default function SettingsMenu() {
                                     showBanner()
                                     setOpen(false)
                                 }}
-                                className="mt-2 w-full px-1 text-left text-xs underline text-[var(--text-subtle)] hover:text-[var(--text)]"
+                                className="mt-2 w-full px-1 text-left text-xs underline text-[var(--text-subtle)] hover:text-[var(--text)] cursor-pointer"
                             >
                                 {t('cookieConsent.manage')}
                             </button>
                         )}
-
+    
                         {confirmClear ? (
                             <div className="mt-3 px-1">
                                 <p className="mb-2 text-xs text-[var(--text-subtle)]">
@@ -304,14 +261,14 @@ export default function SettingsMenu() {
                                     <button
                                         type="button"
                                         onClick={handleClearData}
-                                        className="flex-1 rounded-xl bg-red-600 px-3 py-2 text-xs font-bold text-white transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                                        className="flex-1 cursor-pointer rounded-xl bg-red-600 px-3 py-2 text-xs font-bold text-white transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98]"
                                     >
                                         {t('cookieConsent.clearYes')}
                                     </button>
                                     <button
                                         type="button"
                                         onClick={() => setConfirmClear(false)}
-                                        className="flex-1 rounded-xl border border-[var(--border)] px-3 py-2 text-xs font-bold text-[var(--text-subtle)] hover:text-[var(--text)]"
+                                        className="flex-1 cursor-pointer rounded-xl border border-[var(--border)] px-3 py-2 text-xs font-bold text-[var(--text-subtle)] hover:text-[var(--text)]"
                                     >
                                         {t('cookieConsent.cancel')}
                                     </button>
@@ -321,7 +278,7 @@ export default function SettingsMenu() {
                             <button
                                 type="button"
                                 onClick={() => setConfirmClear(true)}
-                                className="mt-3 w-full px-1 text-left text-xs font-semibold underline underline-offset-2 text-red-500 hover:text-red-600"
+                                className="mt-3 w-full px-1 text-left text-xs font-semibold underline underline-offset-2 text-red-500 hover:text-red-600 cursor-pointer"
                             >
                                 {t('cookieConsent.clear')}
                             </button>

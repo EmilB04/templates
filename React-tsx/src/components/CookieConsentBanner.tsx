@@ -30,7 +30,7 @@ export default function CookieConsentBanner() {
                             borderColor: 'var(--border)',
                         }}
                     >
-                        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                        <section className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                             <div className="min-w-0">
                                 <p className="text-sm text-[var(--text-subtle)]">
                                     {t('cookieConsent.message')}
@@ -39,7 +39,7 @@ export default function CookieConsentBanner() {
                                     type="button"
                                     onClick={() => setShowDetails((value) => !value)}
                                     aria-expanded={showDetails}
-                                    className="mt-1 text-xs font-semibold underline underline-offset-2 text-[var(--text-subtle)] hover:text-[var(--text)]"
+                                    className="mt-1 cursor-pointer text-xs font-semibold underline underline-offset-2 text-[var(--text-subtle)] hover:text-[var(--text)]"
                                 >
                                     {showDetails ? t('cookieConsent.hideDetails') : t('cookieConsent.showDetails')}
                                 </button>
@@ -48,19 +48,19 @@ export default function CookieConsentBanner() {
                                 <button
                                     type="button"
                                     onClick={decline}
-                                    className="flex-1 rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text-subtle)] transition-colors duration-200 hover:text-[var(--text)] sm:flex-none"
+                                    className="flex-1 cursor-pointer rounded-xl border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text-subtle)] transition-colors duration-200 hover:text-[var(--text)] sm:flex-none"
                                 >
                                     {t('cookieConsent.decline')}
                                 </button>
                                 <button
                                     type="button"
                                     onClick={accept}
-                                    className="flex-1 rounded-xl bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-white transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:flex-none"
+                                    className="flex-1 cursor-pointer rounded-xl bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-white transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:flex-none"
                                 >
                                     {t('cookieConsent.accept')}
                                 </button>
                             </div>
-                        </div>
+                        </section>
 
                         <AnimatePresence initial={false}>
                             {showDetails && (
