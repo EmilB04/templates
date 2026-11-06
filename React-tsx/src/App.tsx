@@ -1,44 +1,41 @@
 import { useTranslation } from 'react-i18next'
-import { motion } from 'framer-motion'
-import { useTheme } from './contexts/useTheme'
+import { motion, MotionConfig } from 'framer-motion'
 import HeaderSection from './components/header/HeaderSection'
 import FooterSection from './components/footer/FooterSection'
-import ebBlack from './assets/icons/eb_black.png'
-import ebWhite from './assets/icons/eb_whte.png'
+import HomePage from './pages/HomePage'
+import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
   const { t } = useTranslation()
-  const { currentTheme } = useTheme()
+  // Navigation uses normal links. Unknown URLs render the same page as 404.html.
+  const isHome = ['/', '/index.html'].includes(window.location.pathname)
 
   return (
-    <div className="flex min-h-screen flex-col bg-white text-gray-900 transition-colors duration-300 dark:bg-gray-950 dark:text-gray-100">
-      <HeaderSection />
-
-      <motion.main
-        className="flex-1"
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-      >
-        <div className="mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center gap-4 px-6 py-24">
-          <div className="flex h-28 w-28 items-center justify-center rounded-full border border-gray-200 bg-black text-white transition-colors duration-300 dark:border-gray-800 dark:bg-white dark:text-black">
-            <img src={currentTheme === 'dark' ? ebBlack : ebWhite} alt="Logo" className="h-18 w-18" />
-          </div>
-          <h1 className="text-4xl text-center font-bold text-[var(--accent)]">{t('greeting')}</h1>
-          <p className="flex flex-wrap justify-center gap-2 text-gray-500 dark:text-gray-400">
-            Vite 8 · React 19 · TypeScript 6 · Tailwind 4 · i18next 26 · Framer Motion 14 · React Icons 5 · Lucide React 1
-          </p>
-        </div>
-      </motion.main>
-
-      <motion.footer
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}
-      >
-        <FooterSection />
-      </motion.footer>
-    </div>
+    <MotionConfig reducedMotion="user">
+      <div className="flex min-h-screen flex-col bg-white text-gray-900 transition-colors duration-300 dark:bg-gray-950 dark:text-gray-100">
+        <a href="#main-content" className="sr-only z-[500] rounded-xl bg-white px-4 py-3 font-semibold text-gray-950 focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:outline-2 focus:outline-[var(--accent)]">
+          {t('navigation.skipToContent')}
+        </a>
+        <HeaderSection />
+        <motion.main
+          id="main-content"
+          tabIndex={-1}
+          className="flex-1 focus:outline-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          {isHome ? <HomePage /> : <NotFoundPage />}
+        </motion.main>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+        >
+          <FooterSection />
+        </motion.div>
+      </div>
+    </MotionConfig>
   )
 }
 

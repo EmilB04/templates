@@ -46,5 +46,80 @@
     "updated": "Zuletzt aktualisiert: {{month}} {{year}}",
     "github": "Auf GitHub checken",
     "madeBy": "Gebaut von"
+  },
+  "components": {
+    "eyebrow": "Anwendungskomponenten",
+    "title": "Ein paar nützliche Ausgangspunkte",
+    "description": "Wiederverwendbare Komponenten für Formulare, Rückmeldungen und typische Zustände. Probiere die Beispiele aus.",
+    "required": "Gib einen Namen ein, um fortzufahren.",
+    "reset": "Zurücksetzen",
+    "cancel": "Abbrechen",
+    "close": "Dialog schließen",
+    "localOnly": "Nur eine Demo. Änderungen bleiben im Arbeitsspeicher und werden beim Neuladen zurückgesetzt.",
+    "form": {
+      "title": "Formulare und Schaltflächen",
+      "description": "Beschriftungen, Hilfetexte, Validierung und Aktionszustände.",
+      "name": "Anzeigename",
+      "hint": "Verwende den Namen, den andere sehen sollen.",
+      "save": "Änderungen ansehen",
+      "success": "Vorschau für {{name}} aktualisiert."
+    },
+    "projects": {
+      "title": "Leere Ansichten und Dialoge",
+      "description": "Zeige in einer leeren Ansicht einen klaren nächsten Schritt.",
+      "empty": "Noch keine Projekte",
+      "emptyDescription": "Erstelle ein Beispielprojekt, um diese leere Ansicht in eine Liste zu verwandeln.",
+      "add": "Projekt hinzufügen",
+      "dialogTitle": "Projekt erstellen",
+      "name": "Projektname",
+      "create": "Projekt erstellen",
+      "count_one": "{{count}} Beispielprojekt",
+      "count_other": "{{count}} Beispielprojekte"
+    },
+    "feedback": {
+      "title": "Hinweise und Rückmeldungen",
+      "description": "Meldungen für Informationen, Erfolg und Fehler.",
+      "info": "Ausprobieren, ohne etwas zu speichern",
+      "error": "Beispiel einer Fehlermeldung",
+      "errorDescription": "Erkläre, was passiert ist und wie es sich beheben lässt.",
+      "disabled": "Aktion nicht verfügbar"
+    },
+    "loading": {
+      "title": "Ladezustände",
+      "description": "Ladeanzeigen, beschäftigte Schaltflächen und Platzhalter.",
+      "saving": "Wird gespeichert…",
+      "preview": "Ladevorschau",
+      "skeleton": "Beispiel eines Platzhalters für eine Profilkarte"
+    },
+    "motion": {
+      "title": "Animation und Interaktion",
+      "description": "Einblendeffekte mit Framer Motion und eine wiederholbare Animation.",
+      "play": "Animation abspielen",
+      "reduced": "Die Animation ist deaktiviert, da du reduzierte Bewegung bevorzugst.",
+      "runs_one": "Animation {{count}} Mal gestartet.",
+      "runs_other": "Animation {{count}} Mal gestartet."
+    },
+    "icons": {
+      "title": "Symbole und Umschaltflächen",
+      "description": "Lucide für Oberflächensymbole. React Icons für weitere Stile und Markensymbole.",
+      "favorite": "Favorit",
+      "favorited": "Als Favorit markiert",
+      "like": "Gefällt mir",
+      "liked": "Gefällt dir",
+      "hint": "Beschrifte Aktionen mit Text und verberge dekorative Symbole vor Screenreadern."
+    }
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die Seite wurde möglicherweise verschoben oder die Adresse ist falsch.",
+    "home": "Zur Startseite",
+    "back": "Zurück"
+  },
+  "navigation": {
+    "skipToContent": "Zum Inhalt springen"
+  },
+  "seo": {
+    "homeTitle": "React TSX Template — Vorlage für Anwendungen",
+    "homeDescription": "Eine React- und TypeScript-Vorlage mit wiederverwendbaren Komponenten, zugänglichen Dialogen, Themes, Übersetzungen und Animationen."
   }
 }

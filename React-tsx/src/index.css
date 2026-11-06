@@ -2,6 +2,16 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@layer base {
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+}
+
 :root {
   --surface: rgba(255, 255, 255, 0.8);
   --surface-card: rgba(249, 250, 251, 0.9);

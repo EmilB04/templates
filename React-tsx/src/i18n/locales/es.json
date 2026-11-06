@@ -46,5 +46,80 @@
     "updated": "Última actualización: {{month}} {{year}}",
     "github": "Míralo en GitHub",
     "madeBy": "Hecho por"
+  },
+  "components": {
+    "eyebrow": "Componentes de aplicación",
+    "title": "Algunos puntos de partida útiles",
+    "description": "Componentes reutilizables para formularios, mensajes y estados habituales. Prueba los ejemplos.",
+    "required": "Introduce un nombre para continuar.",
+    "reset": "Restablecer",
+    "cancel": "Cancelar",
+    "close": "Cerrar diálogo",
+    "localOnly": "Solo una demostración. Los cambios se mantienen en memoria y se borran al recargar.",
+    "form": {
+      "title": "Formularios y botones",
+      "description": "Etiquetas, ayuda, validación y estados de acción.",
+      "name": "Nombre visible",
+      "hint": "Usa el nombre que quieres mostrar a los demás.",
+      "save": "Vista previa de cambios",
+      "success": "Vista previa actualizada para {{name}}."
+    },
+    "projects": {
+      "title": "Estados vacíos y diálogos",
+      "description": "Ofrece un siguiente paso claro en las vistas vacías.",
+      "empty": "Aún no hay proyectos",
+      "emptyDescription": "Crea un proyecto de ejemplo para convertir esta vista vacía en una lista.",
+      "add": "Añadir proyecto",
+      "dialogTitle": "Crear un proyecto",
+      "name": "Nombre del proyecto",
+      "create": "Crear proyecto",
+      "count_one": "{{count}} proyecto de ejemplo",
+      "count_other": "{{count}} proyectos de ejemplo"
+    },
+    "feedback": {
+      "title": "Avisos y mensajes",
+      "description": "Mensajes de información, éxito y error.",
+      "info": "Prueba sin guardar nada",
+      "error": "Ejemplo de mensaje de error",
+      "errorDescription": "Explica qué ocurrió y cómo puede resolverlo el usuario.",
+      "disabled": "Acción no disponible"
+    },
+    "loading": {
+      "title": "Estados de carga",
+      "description": "Indicadores de carga, botones ocupados y marcadores de posición.",
+      "saving": "Guardando…",
+      "preview": "Vista previa de carga",
+      "skeleton": "Ejemplo de marcador de posición para una tarjeta de perfil"
+    },
+    "motion": {
+      "title": "Animación e interacción",
+      "description": "Entradas con Framer Motion y una animación que puedes repetir.",
+      "play": "Reproducir animación",
+      "reduced": "La animación está desactivada para respetar tu preferencia de movimiento reducido.",
+      "runs_one": "Animación iniciada {{count}} vez.",
+      "runs_other": "Animación iniciada {{count}} veces."
+    },
+    "icons": {
+      "title": "Iconos y botones de alternancia",
+      "description": "Lucide para iconos de interfaz. React Icons para más estilos y símbolos de marca.",
+      "favorite": "Favorito",
+      "favorited": "Añadido a favoritos",
+      "like": "Me gusta",
+      "liked": "Te gusta",
+      "hint": "Mantén etiquetas de texto en las acciones y oculta los iconos decorativos a los lectores de pantalla."
+    }
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "Es posible que la página se haya movido o que la dirección sea incorrecta.",
+    "home": "Volver al inicio",
+    "back": "Volver atrás"
+  },
+  "navigation": {
+    "skipToContent": "Saltar al contenido"
+  },
+  "seo": {
+    "homeTitle": "React TSX Template — Plantilla de aplicación",
+    "homeDescription": "Una plantilla de React y TypeScript con componentes reutilizables, diálogos accesibles, temas, traducciones y animaciones."
   }
 }

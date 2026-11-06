@@ -46,5 +46,76 @@
     "updated": "Last updated: {{month}} {{year}}",
     "github": "View on GitHub",
     "madeBy": "Made by"
+  },
+  "components": {
+    "eyebrow": "Application components",
+    "title": "A few useful starting points",
+    "description": "Reusable components for forms, feedback and everyday application states. Try the examples below.",
+    "required": "Enter a name to continue.",
+    "reset": "Reset",
+    "cancel": "Cancel",
+    "close": "Close dialog",
+    "localOnly": "Demo only. Changes stay in memory and reset when you reload.",
+    "form": {
+      "title": "Forms & buttons",
+      "description": "Labels, helper text, validation and action states.",
+      "name": "Display name",
+      "hint": "Use the name you want others to see.",
+      "save": "Preview changes",
+      "success": "Preview updated for {{name}}."
+    },
+    "projects": {
+      "title": "Empty states & dialogs",
+      "description": "Give an empty view a clear next step.",
+      "empty": "No projects yet",
+      "emptyDescription": "Create a sample project to see this empty state become a list.",
+      "add": "Add project",
+      "dialogTitle": "Create a project",
+      "name": "Project name",
+      "create": "Create project",
+      "count_one": "{{count}} sample project",
+      "count_other": "{{count}} sample projects"
+    },
+    "feedback": {
+      "title": "Alerts & feedback",
+      "description": "Inline messages for information, success and errors.",
+      "info": "Try it without saving anything",
+      "error": "Example error message",
+      "errorDescription": "Explain what happened and how the user can resolve it.",
+      "disabled": "Unavailable action"
+    },
+    "loading": {
+      "title": "Loading states",
+      "description": "Spinners, busy buttons and skeleton placeholders.",
+      "saving": "Saving…",
+      "preview": "Loading preview",
+      "skeleton": "Example skeleton for a profile card"
+    },
+    "motion": {
+      "title": "Motion & interaction",
+      "description": "Framer Motion entrances and an animation you can replay.",
+      "play": "Play animation",
+      "reduced": "Animation is disabled to respect your reduced-motion preference.",
+      "runs_one": "Animation started {{count}} time.",
+      "runs_other": "Animation started {{count}} times."
+    },
+    "icons": {
+      "title": "Icons & toggle buttons",
+      "description": "Lucide for interface icons. React Icons for additional styles and brand symbols.",
+      "favorite": "Favorite",
+      "favorited": "Favorited",
+      "like": "Like",
+      "liked": "Liked",
+      "hint": "Keep text labels on actions and hide decorative icons from screen readers."
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "This page may have moved, or the address may be incorrect.",
+    "home": "Back to home",
+    "back": "Go back"
+  },
+  "navigation": {
+    "skipToContent": "Skip to content"
   }
 }

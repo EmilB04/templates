@@ -46,5 +46,80 @@
     "updated": "Sist oppdatert: {{month}} {{year}}",
     "github": "Se på GitHub",
     "madeBy": "Laget av"
+  },
+  "components": {
+    "eyebrow": "Applikasjonskomponenter",
+    "title": "Noen nyttige utgangspunkt",
+    "description": "Gjenbrukbare komponenter for skjemaer, tilbakemeldinger og vanlige tilstander. Prøv eksemplene nedenfor.",
+    "required": "Skriv inn et navn for å fortsette.",
+    "reset": "Nullstill",
+    "cancel": "Avbryt",
+    "close": "Lukk dialog",
+    "localOnly": "Kun en demo. Endringer lagres i minnet og nullstilles når du laster siden på nytt.",
+    "form": {
+      "title": "Skjemaer og knapper",
+      "description": "Etiketter, hjelpetekst, validering og knappetilstander.",
+      "name": "Visningsnavn",
+      "hint": "Bruk navnet du vil at andre skal se.",
+      "save": "Forhåndsvis endringer",
+      "success": "Forhåndsvisning oppdatert for {{name}}."
+    },
+    "projects": {
+      "title": "Tomme visninger og dialoger",
+      "description": "Gi en tom visning et tydelig neste steg.",
+      "empty": "Ingen prosjekter ennå",
+      "emptyDescription": "Opprett et eksempelprosjekt for å gjøre denne tomme visningen til en liste.",
+      "add": "Legg til prosjekt",
+      "dialogTitle": "Opprett et prosjekt",
+      "name": "Prosjektnavn",
+      "create": "Opprett prosjekt",
+      "count_one": "{{count}} eksempelprosjekt",
+      "count_other": "{{count}} eksempelprosjekter"
+    },
+    "feedback": {
+      "title": "Varsler og tilbakemeldinger",
+      "description": "Meldinger for informasjon, bekreftelser og feil.",
+      "info": "Prøv uten å lagre noe",
+      "error": "Eksempel på feilmelding",
+      "errorDescription": "Forklar hva som skjedde og hvordan brukeren kan løse det.",
+      "disabled": "Utilgjengelig handling"
+    },
+    "loading": {
+      "title": "Lastetilstander",
+      "description": "Lasteindikatorer, opptatte knapper og plassholdere.",
+      "saving": "Lagrer…",
+      "preview": "Forhåndsvisning av lasting",
+      "skeleton": "Eksempel på plassholder for et profilkort"
+    },
+    "motion": {
+      "title": "Animasjon og interaksjon",
+      "description": "Framer Motion med innlastingseffekter og en animasjon du kan spille av igjen.",
+      "play": "Spill av animasjon",
+      "reduced": "Animasjonen er slått av fordi du foretrekker redusert bevegelse.",
+      "runs_one": "Animasjonen er startet {{count}} gang.",
+      "runs_other": "Animasjonen er startet {{count}} ganger."
+    },
+    "icons": {
+      "title": "Ikoner og veksleknapper",
+      "description": "Lucide for grensesnittikoner. React Icons for flere stiler og merkevaresymboler.",
+      "favorite": "Favoritt",
+      "favorited": "Favoritt valgt",
+      "like": "Lik",
+      "liked": "Likt",
+      "hint": "Bruk tekstetiketter på handlinger og skjul dekorative ikoner for skjermlesere."
+    }
+  },
+  "notFound": {
+    "title": "Fant ikke siden",
+    "description": "Siden kan ha blitt flyttet, eller adressen kan være feil.",
+    "home": "Til forsiden",
+    "back": "Gå tilbake"
+  },
+  "navigation": {
+    "skipToContent": "Hopp til innhold"
+  },
+  "seo": {
+    "homeTitle": "React TSX Template — Startmal for applikasjoner",
+    "homeDescription": "En startmal med React og TypeScript, gjenbrukbare komponenter, tilgjengelige dialoger, temaer, oversettelser og animasjon."
   }
 }
