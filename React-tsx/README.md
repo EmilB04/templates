@@ -23,7 +23,7 @@
 
 ## Start a project
 
-Requires Node.js 20 or newer.
+Requires Node.js 20.19+, 22.13+, or 24+. Node.js 24 LTS is recommended.
 
 ```bash
 npm install
@@ -42,8 +42,12 @@ npm run preview   # preview the production build
 | Types | TypeScript 6 |
 | Styles | Tailwind CSS 4 with PostCSS |
 | i18n | i18next 26 + react-i18next 17 |
-| Animation | Framer Motion 13 |
+| Animation | Framer Motion 14 |
 | Icons | Lucide React 1 + React Icons 5 |
+
+TypeScript stays on 6.0 until typescript-eslint supports TypeScript 7.
+The minimatch override uses the patched 11.x release while ESLint and
+typescript-eslint still depend on vulnerable 10.x versions (GHSA-g3hv-75wg-m249).
 
 ```text
 src/
